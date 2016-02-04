@@ -1,0 +1,170 @@
+//basic container which can have an optional header.
+.container-basic {
+  position: relative;
+  &--intuit-link {
+    width: 680px;
+    @media @mobile-only {
+      width: 284px;
+      height: auto;
+    }
+  }
+  // header for container. optional
+  &__header {
+    width: 100%;
+    background: @lightestgrey;
+    position: relative;
+    box-shadow: 0px 1px 0px 0px @lightergrey, 0px 2px 3px 0px rgba(0,0,0,0.10);
+    transition: height 1000ms linear;
+    // applies margins/padding to allow for a progress indicator of some kind
+    &--with-progress {
+      & .container-basic__heading {
+        // leave a margin to the right if header contains a progress bar.
+        @media @min-tablet {
+          padding-right: 110px;
+        }
+        @media @mobile-only {
+          // expand the padding a little bit when there's a progress bar on top
+          padding-top: 45px;          
+        }
+      }
+    }
+  }
+  // basically just a container that is on top for mobile and on the right for tablets and desktop
+  &__progress {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    @media @mobile-only {
+      top: 12px;
+      left: 18px;
+      transform: none;
+    }
+  }
+
+  &__body {
+    position: relative;
+  }
+
+  &__heading {
+    padding: 24px 29px;
+    line-height: 30px;
+    @media @mobile-only {
+      padding: 12px 18px;
+    }
+    @media @mobile-only {
+      font-size: 24px;
+    }
+  }
+}
+
+// simple container that adds padding and height responsively
+.container-spacer {
+  padding: 30px;
+  height: 100%;
+
+  &--intuit {
+    position: relative;
+    height: 360px;
+  }
+
+  @media @mobile-only {
+    height: auto;
+    padding: 18px;
+  }
+}
+
+// generic container rows of buttons with buttons center left or right
+// as in modals
+.container-buttons {
+  .clearfix;
+  &__button--left {
+    float: left;
+  }
+  &__button--right {
+    float: right;
+    position: relative;
+  }
+  &__button--skeleton {
+    border: none;
+    &:hover {
+      border: none;
+      box-shadow: none;
+    }
+    &:after {
+      content: '';
+      background: @lightergrey;
+      position: absolute;
+      border-radius: 3px;
+      .absolute-fill-space();
+    }
+  }
+}
+
+@keyframes pulsate {
+    0% { 
+      // background: red;
+      background: @lightergrey;
+        // opacity: 0.5;
+    }
+    50% {
+      background: #C4C4C4;
+
+      // background: blue;
+        // opacity: 1.0;
+    }
+    100% { 
+      background: @lightergrey;
+      // background: green;
+        // opacity: 0.5;
+    }
+}
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+@keyframes pulse {
+       0%   {
+         box-shadow: 0px 0px 0px 0px rgba(255,255,255,1), 0px 0px 0px 0px rgba(220,220,220,1);
+       }
+       100% {
+        box-shadow: 0px 0px 0px 10px rgba(255,255,255,1), 0px 0px 0px 15px rgba(220,220,220,.5);
+       }
+     }
+.skeleton {
+  background: @lightergrey;
+  position: absolute;
+  border-radius: 3px;
+  .absolute-fill-space();
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms linear, visibility 0s linear 200ms;
+  &--active {
+    opacity: 1;
+    visibility: visible;      
+    height: auto;
+    transition: opacity 200ms linear, visibility 0s linear;
+  }
+  // animation-duration: 1s;
+  // animation-fill-mode: forwards;
+  // animation-iteration-count: infinite;
+  // animation-name: placeHolderShimmer;
+  // animation-timing-function: linear;
+  // background: #f6f7f8;
+  // background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+  background-size: 800px 104px;
+  background: rgb(220,220,220);
+          box-shadow: 0px 0px 0px 10px rgba(255,255,255,1), 0px 0px 0px 15px rgba(220,220,220,1);
+          -webkit-animation: pulse 1.5s ease-out infinite;
+          -moz-animation:    pulse 1.5s ease-out infinite;
+          -o-animation:      pulse 1.5s ease-out infinite;
+          animation:         pulse 1.5s ease-out infinite;
+  // animation: pulsate 1.5s linear;
+  //    animation-iteration-count: infinite; 
+     // opacity: 1;
+}

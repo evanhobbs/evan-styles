@@ -1,0 +1,66 @@
+.transition-forward-enter {
+  width: 100%;
+  transform: translateX(100%);
+  &&-active {
+    transform: translateX(0);
+    transition: transform 400ms @cubic-bezier;
+  }
+}
+
+.transition-forward-leave {
+  width: 100%;
+  transform: translateX(0);
+  //the leaving item is top: 0 position absolute so the height of the
+  //container will now adjust to the height of the entering item.
+  top: 0;
+  position: absolute !important;
+  &&-active {
+    transform: translateX(-100%);
+    transition: transform 400ms @cubic-bezier;
+  }
+}
+
+.transition-reverse-enter {
+  width: 100%;
+  transform: translateX(-100%);
+  &&-active {
+    transform: translateX(0);
+    transition: transform 400ms @cubic-bezier;    
+  }
+}
+
+.transition-reverse-leave {
+  //the leaving item is top: 0 position absolute so the height of the
+  //container will now adjust to the height of the entering item.
+  top: 0;
+  position: absolute !important;
+  width: 100%;
+  transform: translateX(0);
+  &&-active {
+    transform: translateX(100%);
+    transition: transform 400ms @cubic-bezier;
+  }
+}
+
+.transition-fade-enter {
+  // position: absolute;
+  width: 100%;
+  opacity: 0;
+  &&-active {
+    opacity: 1;
+    transition: opacity 250ms linear;
+  }
+}
+
+.transition-fade-leave {
+  //the leaving item is top: 0 position absolute so the height of the
+  //container will now adjust to the height of the entering item.
+  top: 0;
+  position: absolute !important;
+  width: 100%;
+  opacity: 1;
+  &&-active {
+    opacity: 0;
+    transition: opacity 100ms linear;
+  }
+}

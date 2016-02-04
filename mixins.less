@@ -1,0 +1,92 @@
+// basic clearfix that can be mixed into class
+.clearfix() {
+  *zoom: 1;
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 0;
+  }
+}
+
+.hover-cursor() {
+  &:hover { cursor: pointer; }
+}
+
+// horizontally & vertically centers element
+// requires that the parent be position: relative
+.center-element {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// use absolute positioning to fill up. Pass overrides to offset
+// requires parent be position: relative
+.absolute-fill-space(@top: 0, @right: 0, @bottom: 0, @left: 0) {
+  position: absolute;
+  top: @top;
+  right: @right;
+  bottom: @bottom;
+  left: @left;
+}
+
+// remove default list styling - same as bootstrap list-unstyled
+.list-unstyled() {
+  padding-left:0;
+  margin: 0;
+  list-style:none;
+}
+
+// make element a circle
+.shape-circle(@diameter) {
+  border-radius: 50%;
+  height: @diameter;
+  width: @diameter;
+}
+
+// wrapper for columns (which are floating)
+.column-container() {
+  .clearfix;
+}
+
+// very similar to bootstrap columns. Basically a mixin that creates columns
+// with width as a percetage of how many columns out of 12
+// no break stays columns at any width        
+.column-no-break(@numColumns, @padding: 15px) {
+  float: left;
+  width: percentage((@numColumns / 12));
+  min-height: 1px;
+  padding-left: @padding;
+  padding-right: @padding;
+  &:first-child { padding-left: 0; }
+  &:last-child { padding-right: 0; }
+}
+
+//column that breaks to full width starting on mobile
+.column-break-mobile(@numColumns, @padding: 15px) {
+  .column-no-break(@numColumns);
+  @media @mobile-only {
+    float: none;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+//column that breaks to full width starting on tablet
+.column-break-tablet(@numColumns) {
+  .column-no-break(@numColumns);
+  @media @tablet-only {
+    float: none;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.text-small() {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'GothamBody';
+}
