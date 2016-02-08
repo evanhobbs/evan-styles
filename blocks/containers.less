@@ -1,6 +1,9 @@
 //basic container which can have an optional header.
 .nw-container {
   position: relative;
+  &--grey-bg {
+    background: @lightestgrey;
+  }
   // header for container. optional
   &__header {
     width: 100%;
@@ -115,20 +118,13 @@
 
 @keyframes pulsate {
     0% { 
-      // background: red;
       background: @lightergrey;
-        // opacity: 0.5;
     }
     50% {
       background: #C4C4C4;
-
-      // background: blue;
-        // opacity: 1.0;
     }
     100% { 
       background: @lightergrey;
-      // background: green;
-        // opacity: 0.5;
     }
 }
 
@@ -141,13 +137,13 @@
     }
 }
 @keyframes pulse {
-       0%   {
-         box-shadow: 0px 0px 0px 0px rgba(255,255,255,1), 0px 0px 0px 0px rgba(220,220,220,1);
-       }
-       100% {
-        box-shadow: 0px 0px 0px 10px rgba(255,255,255,1), 0px 0px 0px 15px rgba(220,220,220,.5);
-       }
-     }
+   0%   {
+     box-shadow: 0px 0px 0px 0px rgba(255,255,255,1), 0px 0px 0px 0px rgba(220,220,220,1);
+   }
+   100% {
+    box-shadow: 0px 0px 0px 10px rgba(255,255,255,1), 0px 0px 0px 15px rgba(220,220,220,.5);
+   }
+ }
 .skeleton {
   background: @lightergrey;
   position: absolute;
