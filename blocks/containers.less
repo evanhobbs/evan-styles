@@ -1,13 +1,6 @@
 //basic container which can have an optional header.
-.container-basic {
+.nw-container {
   position: relative;
-  &--intuit-link {
-    width: 680px;
-    @media @mobile-only {
-      width: 284px;
-      height: auto;
-    }
-  }
   // header for container. optional
   &__header {
     width: 100%;
@@ -17,7 +10,7 @@
     transition: height 1000ms linear;
     // applies margins/padding to allow for a progress indicator of some kind
     &--with-progress {
-      & .container-basic__heading {
+      & .nw-container__heading {
         // leave a margin to the right if header contains a progress bar.
         @media @min-tablet {
           padding-right: 110px;
@@ -58,14 +51,15 @@
   }
 }
 
-// simple container that adds padding and height responsively
-.container-spacer {
+// simple, possibly unnecessary that manages padding/height and makes react animations
+// work better
+.container-modal-content {
   padding: 30px;
   height: 100%;
+  position: relative;
 
-  &--intuit {
-    position: relative;
-    height: 360px;
+  &--fixed-height-md {
+    height: 360px;  
   }
 
   @media @mobile-only {
