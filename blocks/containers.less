@@ -61,10 +61,6 @@
   height: 100%;
   position: relative;
 
-  &--fixed-height-md {
-    height: 360px;  
-  }
-
   &--fixed-width-md {
     width: 480px;
     @media @mobile-only {
@@ -81,7 +77,6 @@
 // generic container rows of buttons with buttons center left or right
 // as in modals
 .nw-buttons {
-  .clearfix;
   display: flex;
   justify-content: space-between;
   @media @mobile-only {
@@ -94,10 +89,10 @@
     }
   }
   &__button--left {
-    float: left;
+    align-self: flex-start;
   }
   &__button--right {
-    float: right;
+    align-self: flex-start;
     position: relative;
   }
   &__button--skeleton {
