@@ -1,0 +1,46 @@
+// @keyframes system-message-fadeout {
+//   0% { opacity: 0; }
+//   10% { opacity: 1; }
+//   90% { opacity: 1; }
+//   100% { opacity: 0; }
+// }
+
+.nw-component-message {
+  // animation-name: system-message-fadeout;
+  // animation-duration: 5.5s;
+  // animation-fill-mode: forwards;
+
+  width: 80%;
+  margin: 0 auto;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  background: #ededed;
+  .text-small;
+  padding: 12px 0 10px;
+  border-radius: 3px;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 500ms;
+  @media @mobile-only {
+    width: 95%;
+  }
+  &__body {
+    // if there's no error add &nbsp; so it doesn't collapse the container
+    &:empty:after {
+      content: '\00A0'
+    }
+  }
+  &--error {
+    background: #e05555;
+    color: #ffffff;
+  }
+  &--success {
+    background: @teal;
+    color: #ffffff;
+  }
+  &--hidden {
+    opacity: 0;
+  }
+}

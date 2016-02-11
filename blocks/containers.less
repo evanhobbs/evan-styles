@@ -78,22 +78,28 @@
 // as in modals
 .nw-buttons {
   display: flex;
-  justify-content: space-between;
   @media @mobile-only {
     flex-direction: column;
   }
   &__button {
-    margin-bottom: 15px;
-    &:last-child {
-      margin-bottom: 0;
+
+    @media @mobile-only {
+      margin-bottom: 15px;
+      &:last-child {
+        margin-bottom: 0;
+      }      
+    }
+    > button {
+      width: 100%;
     }
   }
-  &__button--left {
-    align-self: flex-start;
-  }
+  &__button--left {}
   &__button--right {
-    align-self: flex-end;
     position: relative;
+    margin-left: auto;
+    @media @mobile-only {
+      margin-left: 0;
+    }
   }
   &__button--skeleton {
     border: none;
