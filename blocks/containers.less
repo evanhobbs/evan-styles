@@ -68,9 +68,16 @@
     }
   }
 
+
   @media @mobile-only {
     height: auto;
     padding: 18px;
+  }
+  &--no-padding {
+    padding: 0;
+    @media @mobile-only {
+      padding: 0;
+    }
   }
 }
 
